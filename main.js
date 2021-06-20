@@ -7,19 +7,19 @@ for (let i = 0; i < SQUARES_NUMBER; i++) {
     square.classList.add('square');
     board.append(square);
 
-    square.addEventListener('mouseover', () => setColor(square));
-    square.addEventListener('mouseleave', () => removeColor(square));
+    square.addEventListener('mouseover', setColor);
+    square.addEventListener('mouseleave', removeColor);
 }
 
-function setColor(elem) {
+function setColor(event) {
     const color = getRandomColor();
-    elem.style.backgroundColor = color;
-    elem.style.boxShadow = `0 0 2px ${color}, 0 0 10px ${color}`;
+    event.target.style.backgroundColor = color;
+    event.target.style.boxShadow = `0 0 2px ${color}, 0 0 10px ${color}`;
 }
 
-function removeColor(elem) {
-    elem.style.backgroundColor = '#1d1d1d';
-    elem.style.boxShadow = `0 0 2px #000`;
+function removeColor(event) {
+    event.target.style.backgroundColor = '#1d1d1d';
+    event.target.style.boxShadow = `0 0 2px #000`;
 }
 
 function getRandomColor() {
